@@ -7,21 +7,24 @@ I claim that Huffman’s coding gives an optimal cost prefix tree.
 
 ### <ins>Proof</ins>
 Let $n$ be the number of symbols. <br>
-Given frequencies $f_1,...,f_n$ to find the optimal prefix-free code that minimizes $$\sum_i^nf_i \times len(i) $$ is the same as finding the full binary tree with $n$ leaves, that minimizes $$\sum^n_{i=1}f_i \times depth(i)$$.
+Given frequencies $f_1,...,f_n$ to find the optimal prefix-free code that minimizes $$\sum_i^nf_i \times len(i) $$ is the same as finding the full binary tree with $n$ leaves, that minimizes $$\sum^n_{i=1}f_i \times depth(i)$$
 
 We go by induction on $n$.
 
-<b><ins>Base case ($n = 2$)</b></ins>: There’s only one full binary tree with $2$ leaves.  <br>Therefore, the base case holds.
+<b><ins>Base case ($`n = 2`$)</b></ins>: There’s only one full binary tree with $2$ leaves. Therefore, the base case holds.
 <br>
 
 <b><ins>Induction Hypothesis:</b></ins>: Suppose the claim is true for some sequence of $n−1$ frequencies.
 
  <b><ins>Inductive Step:</b></ins>: Let $f_1,...f_n$ be any $n$ frequencies. Assume
-without loss of generality that $f_1 \leq f_2 \leq ... \leq f_n$ (by relabeling). Note that there’s an
+without loss of generality that $f_1 \leq f_2 \leq ... \leq f_n$ (by relabeling). Note that there exists
 optimal tree $T$ for which the leaves marked with $1$ and $2$ are siblings. Let’s denote the tree
-that Huffman strategy gives by $H$. Note that we are not claiming that $T = H$ but rather that T and H have the same cost. We will now remove both leaves marked by $1$ and $2$ from $T$, making their father a new leaf with frequency $f_1+f_2$. This therefore, results into us a new binary tree $T'$ on $n−1$ leaves with frequencies $f_1 + f_2, f_3, f_4, ..., f_n$. We do the same for the Huffman tree giving us a tree $H'$ on $n − 1$ leaves with frequencies $f_1 + f_2, f_3, f_4,... , f_n$. Note that $H'$ is exactly the Huffman tree on frequencies $f1 + f2, f3, f4, ... , fn$ by definition of Huffman’s coding. By my induction
+that Huffman coding generates by $H$. Note that we are not claiming that $T = H$ but rather that $T$ and $H$ have the same cost. We will now remove both leaves marked by $1$ and $2$ from $T$, making their father a new leaf with frequency $f_1+f_2$. This therefore, results into us a new binary tree $T'$ on $n−1$ leaves with frequencies $f_1 + f_2, f_3, f_4, ..., f_n$. We do the same for the Huffman tree giving us a tree $H'$ on $n − 1$ leaves with frequencies $f_1 + f_2, f_3, f_4,... , f_n$. Note that $H'$ is exactly the Huffman tree on frequencies $f_1 + f_2, f_3, f_4, ... , f_n$ by definition of Huffman’s coding. By my induction
 hypothesis, $cost(H') = cost(T')$. Note that, $cost(T'
-) = cost(T) − (f_1 + f_2)$ since to get $T'$ from $T$ we replaced two nodes with frequencies $f_1$ and $f_2$ at some depth $d$ with one node with frequency $f1 + f2$ at depth $d − 1$. This lowers the cost by $f1 + f2$. Similarly,
-$cost(H') = cost(H) − (f1 + f2)$
+) = cost(T) − (f_1 + f_2)$ since to get $T'$ from $T$ we replaced two nodes with frequencies $f_1$ and $f_2$ at some depth $d$ with one node with frequency $f_1 + f_2$ at depth $d − 1$. This lowers the cost by $f_1 + f_2$. Similarly,
+$cost(H') = cost(H) − (f_1 + f_2)$
 It follows that
-$cost(H)$ = $cost(H') + f1 + f2 = cost(T') + f1 + f2 = cost(T)$
+$cost(H)$ = $cost(H') + f_1 + f_2 = cost(T') + f_1 + f_2 = cost(T)$
+<br>Therefore, the induction step holds.
+
+By induction, our claim holds.

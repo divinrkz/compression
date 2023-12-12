@@ -7,7 +7,7 @@ I claim that Huffman’s coding gives an optimal cost prefix tree.
 
 ### <ins>Proof</ins>
 Let $n$ be the number of symbols. <br>
-Given frequencies $f_1,...,f_n$ to find the optimal prefix-free code that minimizes $\sum_n^if_i$ (length of encoding the $i$-<i>th</i> symbol) is the same as s finding the full binary tree with n leaves, one per symbol in $1,...n$ that minimizes $\sum^n_i=1f_i$ (depth of leaf of the $i$-<i>th</i> symbol)
+Given frequencies $f_1,...,f_n$ to find the optimal prefix-free code that minimizes $\sum_i^nf_i$ (length of encoding the $i$-<i>th</i> symbol) is the same as s finding the full binary tree with n leaves, one per symbol in $1,...n$ that minimizes $\sum^n_i=1f_i$ (depth of leaf of the $i$-<i>th</i> symbol)
 
 
 We go by induction on $n$.

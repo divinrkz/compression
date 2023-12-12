@@ -22,9 +22,9 @@ optimal tree $T$ for which the leaves marked with $1$ and $2$ are siblings. Let�
 that Huffman coding generates by $H$. Note that we are not claiming that $T = H$ but rather that $T$ and $H$ have the same cost. We will now remove both leaves marked by $1$ and $2$ from $T$, making their father a new leaf with frequency $f_1+f_2$. This therefore, results into us a new binary tree $T'$ on $n−1$ leaves with frequencies $f_1 + f_2, f_3, f_4, ..., f_n$. We do the same for the Huffman tree giving us a tree $H'$ on $n − 1$ leaves with frequencies $f_1 + f_2, f_3, f_4,... , f_n$. Note that $H'$ is exactly the Huffman tree on frequencies $f_1 + f_2, f_3, f_4, ... , f_n$ by definition of Huffman’s coding. By my induction
 hypothesis, $cost(H') = cost(T')$. Note that, $cost(T'
 ) = cost(T) − (f_1 + f_2)$ since to get $T'$ from $T$ we replaced two nodes with frequencies $f_1$ and $f_2$ at some depth $d$ with one node with frequency $f_1 + f_2$ at depth $d − 1$. This lowers the cost by $f_1 + f_2$. Similarly,
-$cost(H') = cost(H) − (f_1 + f_2)$
+$cost(H') = cost(H) − (f_1 + f_2)$ <br>
 It follows that
-$cost(H)$ = $cost(H') + f_1 + f_2 = cost(T') + f_1 + f_2 = cost(T)$
+$$cost(H) = cost(H') + f_1 + f_2 = cost(T') + f_1 + f_2 = cost(T)$$
 <br>Therefore, the induction step holds.
 
 By induction, our claim holds.
